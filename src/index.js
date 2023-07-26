@@ -1,26 +1,23 @@
 import { Carro } from './modules/carro.js';
+import { ContaCorrente } from './modules/conta-corrente.js';
+import {Conta} from './modules/conta.js';
+import {Bola} from './modules/bola.js';
+import { Pessoa } from './modules/pessoa.js';
+import { ContaPoupanca } from './modules/conta-poupanca.js';
 
+const ramon = new Pessoa("Ramon", "123456789", 39, "M");
+const contaRamon = new ContaCorrente(123, 123, ramon);
 
-const up = new Carro(`Up`, `VW`, 2006);
-//up.ligar();
+const mauricio = new Pessoa("Mauricio", "987654321", 35, "M");
+const contaMauricio = new ContaPoupanca(412, 36, mauricio);
 
-console.log(`Velocidade inicial: ${up.velocidade}km/h`);
+contaRamon.depositar(3000);
+contaMauricio.depositar(2500);
 
-for (let i = 0; i < 1000; i ++) {
-    up.acelerar();
-}
+contaRamon.transferir(contaMauricio, 1000);
 
-console.log(`Velocidade atual: ${up.velocidade}km/h`);
+console.log(contaRamon);
+console.log(contaMauricio);
 
-up.frear();
-up.frear();
-
-console.log(`Velocidade atual: ${up.velocidade}km/h`);
-
-up.desligar();
-
-console.log(`Velocidade atual: ${up.velocidade}km/h`);
-
-
-const ka = new Carro(`Ka`, `Ford`, 2006);
-
+window.alert(contaRamon);
+window.alert(contaMauricio);
